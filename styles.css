@@ -83,8 +83,9 @@
     }
 
     main h1 {
-        color: #9ed034; 
+        color: #9ed034;
     }
+
     /* Partners */
     section {
         width: 100%;
@@ -210,4 +211,71 @@
     td:first-child {
         font-weight: bold;
         background: #BDE1FF;
+    }
+
+    /* Contact */
+    .contactinfo {
+        margin-bottom: 1em;
+    }
+
+    .phone {
+        margin-bottom: 1rem;
+    }
+
+    .phone span:first-child {
+        font-weight: 600;
+    }
+
+    .email span:first-child {
+        font-weight: 600;
+    }
+    form {
+        margin-bottom: 2em;
+    }
+    form legend {
+        text-transform: uppercase;
+        color: #4977D1;
+        font-weight: 600;
+    }
+
+    form .radios label {
+        display: inline-block;
+    }
+
+    form .selectmenu label {
+        display: inline-block;
+    }
+
+    form fieldset {
+        padding-left: 2em;
+    }
+
+    input {
+        width: 300px;
+    }
+
+    input[type='radio'] {
+        width: 25px;
+    }
+
+    textarea {
+        width: 300px;
+        height: 100px;
+    }
+
+
+
+    label {
+        display: block;
+        margin: 15px 0 0 0;
+    }
+
+     .button input[type='submit'] {
+        display: block;
+        width: 100px;
+        margin: 20px 0 10px 205px;
+        background-color: #4977D1;
+        color: #fff;
+        border: none;
+        height: 2em;
     }
