@@ -20,6 +20,11 @@
         background-size: 1700px;
     }
 
+    #cliffs header {
+        background: no-repeat lightgrey url(images/forest_cliff.jpg);
+        background-size: 1700px;
+    }
+
     .main-header {
         background-color: rgba(255, 255, 255, 0.8);
         width: 720px;
@@ -229,9 +234,11 @@
     .email span:first-child {
         font-weight: 600;
     }
+
     form {
         margin-bottom: 2em;
     }
+
     form legend {
         text-transform: uppercase;
         color: #4977D1;
@@ -270,7 +277,7 @@
         margin: 15px 0 0 0;
     }
 
-     .button input[type='submit'] {
+    .button input[type='submit'] {
         display: block;
         width: 100px;
         margin: 20px 0 10px 205px;
@@ -278,4 +285,27 @@
         color: #fff;
         border: none;
         height: 2em;
+    }
+
+    .cliffs {
+        display: flex;
+         gap: 40px;
+         flex-wrap: wrap;
+         width: 60%;
+         margin: auto;
+         margin-bottom: 40px;
+    }
+
+    .cliffs label {
+        background: #852B1B;
+        height: 40px;
+        color: #fff;
+        font-size: 1.3em;
+        font-weight: bold;
+        padding-top: 1em;
+        text-align: center;
+    }
+
+    .cliffs .cliff img {
+        width: 400px;
     }
