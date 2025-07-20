@@ -112,6 +112,11 @@
             var min = d.getMinutes();
             var sec = d.getSeconds();
             var ampm;
+            var utchr = d.getUTCHours();
+            var timeDiff = d.getHours() - utchr
+            var adjTimeDiff = (timeDiff < 0) ? timeDiff + 24 : timeDiff;
+            var timeZone;
+
             if (sec < 10) {
                 sec = "0" + sec;
             }
@@ -127,10 +132,20 @@
             } else {
                 ampm = "AM";
             }
-            var time = hr + ":" + min + ":" + sec + " " + ampm;
+
+            if (adjTimeDiff === 5) {
+                timeZone = "CDT";
+            } else if (adjTimeDiff === 6) {
+                timeZone = "CST";
+            } else if (adjTimeDiff === 7) {
+                timeZone = "MST";
+            } else if (adjTimeDiff === 8) {
+                timeZone = "PST";
+            }
+            var time = hr + ":" + min + ":" + sec + " " + ampm + " " + timeZone;
             document.getElementById("clock").innerText = time;
         }
-        currentTime()
+        setInterval(currentTime, 1000);
     </script>
 </body>
 
