@@ -1,32 +1,37 @@
 $(document).ready(function () {
-    $("td.not-available").css({
-        "background-color": "#e0e0e0",
-        "color": "#9e9e9e",
-        "cursor": "not-allowed"
-    });
+  $("td.not-available").css({
+    "background-color": "#e0e0e0",
+    color: "#9e9e9e",
+    cursor: "not-allowed",
+  });
 
-    $("th").css("cursor", "default");
+  $(document).ready(function () {
+    $("td").click(function () {
+      var content = $(this).text();
 
-    $("td").each(function () {
-        const text = $(this).text().trim();
-        if (text !== "Not Available") {
-            $(this).css("cursor", "pointer");
-        }
-    });
+      if (content != "Not Available") {
+        var colIndex = $(this).index();
+        var location = $("th").eq(colIndex).text().trim();
+        var fullText =
+          content + " <span class='location'>at " + location + "</span>";
 
-    $("table").on("click", "td", function () {
-        const cellText = $(this).text().trim();
-        if (
-            cellText === "Not Available" ||
-            $(this).index() === 0
-        ) {
-            return;
-        }
+        $(this).toggleClass("tdhighlight");
 
-        if (!$(this).hasClass("highlight")) {
-            $(this).addClass("highlight").css("background-color", "#9dd034");
+        if ($(this).hasClass("tdhighlight")) {
+          $(this).css("background-color", "#9dd034");
+          $("#displaySelected").css("visibility", "visible");
+          $("#displaySelected").css("margin-top", "2em");
+          $("#result").append("<p>" + fullText + "</p>");
         } else {
-            $(this).removeClass("highlight").css("background-color", "");
+          $(this).css("background-color", "");
+          $('#result p:contains("' + content + '")').remove();
+
+          if ($("#result").has("p").length == false) {
+            $("#displaySelected").css("visibility", "hidden");
+            $("#displaySelected").css("margin-top", "0");
+          }
         }
+      }
     });
+  });
 });
